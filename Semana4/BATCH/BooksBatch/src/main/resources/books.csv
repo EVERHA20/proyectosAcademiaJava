@@ -1,0 +1,501 @@
+id,title,author,genre,pages
+1,The Great Gatsby,F. Scott Fitzgerald,Fiction,180
+2,To Kill a Mockingbird,Harper Lee,Fiction,281
+3,1984,George Orwell,Dystopian,328
+4,The Catcher in the Rye,J.D. Salinger,Fiction,214
+5,Moby-Dick,Herman Melville,Adventure,635
+6,Pride and Prejudice,Jane Austen,Romance,279
+7,The Hobbit,J.R.R. Tolkien,Fantasy,310
+8,Brave New World,Aldous Huxley,Dystopian,268
+9,The Da Vinci Code,Dan Brown,Thriller,489
+10,The Lord of the Rings,J.R.R. Tolkien,Fantasy,1178
+11,The Shining,Stephen King,Horror,447
+12,The Chronicles of Narnia,C.S. Lewis,Fantasy,208
+13,Jane Eyre,Charlotte Brontë,Romance,500
+14,The Catcher in the Rye,J.D. Salinger,Fiction,214
+15,Little Women,Louisa May Alcott,Classic,759
+16,War and Peace,Leo Tolstoy,Historical,1225
+17,The Alchemist,Paulo Coelho,Fiction,208
+18,One Hundred Years of Solitude,Gabriel García Márquez,Magical Realism,417
+19,The Odyssey,Homer,Classic,541
+20,Murder on the Orient Express,Agatha Christie,Mystery,256
+21,The Godfather,Marian B. K.,Crime,448
+22,The Book Thief,Markus Zusak,Fiction,552
+23,The Road,Cormac McCarthy,Dystopian,287
+24,The Hobbit,J.R.R. Tolkien,Fantasy,310
+25,The Kite Runner,Khaled Hosseini,Drama,371
+26,The Great Alone,Kristin Hannah,Historical Fiction,434
+27,Ender's Game,Orson Scott Card,Science Fiction,324
+28,Dune,Frank Herbert,Science Fiction,412
+29,The Girl with the Dragon Tattoo,Stieg Larsson,Mystery,465
+30,Gone Girl,Gillian Flynn,Thriller,432
+31,The Handmaid's Tale,Margaret Atwood,Dystopian,311
+32,A Game of Thrones,George R.R. Martin,Fantasy,694
+33,The Hunger Games,Suzanne Collins,Dystopian,374
+34,Life of Pi,Yann Martel,Adventure,319
+35,The Lovely Bones,Alice Sebold,Drama,328
+36,Big Little Lies,Liane Moriarty,Drama,460
+37,The Picture of Dorian Gray,Oscar Wilde,Classic,254
+38,The Maze Runner,James Dashner,Dystopian,374
+39,The Secret Garden,Frances Hodgson Burnett,Children's,331
+40,The Outsiders,S.E. Hinton,Young Adult,180
+41,The Silence of the Lambs,Thomas Harris,Thriller,338
+42,The Goldfinch,Donna Tartt,Fiction,771
+43,The Bell Jar,Sylvia Plath,Classic,288
+44,The Name of the Wind,Patrick Rothfuss,Fantasy,662
+45,American Gods,Neil Gaiman,Fantasy,465
+46,The Brief Wondrous Life of Oscar Wao,Junot Díaz,Fiction,335
+47,The Shadow of the Wind,Carlos Ruiz Zafón,Fiction,487
+48,The Girl on the Train,Paula Hawkins,Thriller,395
+49,The Art of Racing in the Rain,Garth Stein,Drama,321
+50,Room,Emma Donoghue,Drama,321
+51,The Immortal Life of Henrietta Lacks,Rebecca Skloot,Non-Fiction,381
+52,The Perks of Being a Wallflower,Stephen Chbosky,Young Adult,213
+53,The Light We Lost,Jill Santopolo,Romance,368
+54,The Seven Husbands of Evelyn Hugo,Taylor Jenkins Reid,Romance,391
+55,Educated,Tara Westover,Non-Fiction,334
+56,Where the Crawdads Sing,Delia Owens,Mystery,368
+57,The Night Circus,Erin Morgenstern,Fantasy,387
+58,The Woman in the Window,A.J. Finn,Thriller,448
+59,The Song of Achilles,Madeline Miller,Romance,379
+60,All the Light We Cannot See,Anthony Doerr,Historical Fiction,531
+61,The Little Prince,Antoine de Saint-Exupéry,Children's,96
+62,The Wonderful Wizard of Oz,L. Frank Baum,Children's,154
+63,The Adventures of Sherlock Holmes,Arthur Conan Doyle,Mystery,307
+64,Rebecca,Daphne du Maurier,Thriller,416
+65,Dracula,Bram Stoker,Horror,418
+66,Frankenstein,Mary Shelley,Horror,280
+67,The Stand,Stephen King,Horror,1153
+68,The Time Traveler's Wife,Audrey Niffenegger,Romance,546
+69,Atonement,Ian McEwan,Drama,371
+70,Atonement,Ian McEwan,Drama,371
+71,The Poisonwood Bible,Barbara Kingsolver,Fiction,546
+72,The Underground Railroad,Colson Whitehead,Historical Fiction,306
+73,Becoming,Michelle Obama,Autobiography,426
+74,The Death of Mrs. Westaway,Ruth Ware,Thriller,384
+75,The Woman in Cabin 10,Ruth Ware,Thriller,336
+76,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+77,The Dutch House,Ann Patchett,Fiction,337
+78,Normal People,Sally Rooney,Romance,273
+79,The Giver,Lois Lowry,Science Fiction,180
+80,The Last Kingdom,Bernard Cornwell,Historical Fiction,336
+81,The Silent Patient,Alex Michaelides,Thriller,325
+82,Circe,Madeline Miller,Fantasy,393
+83,The Midnight Library,Matt Haig,Fiction,304
+84,The City We Became,N.K. Jemisin,Fantasy,431
+85,The Institute,Stephen King,Thriller,528
+86,The Starless Sea,Erin Morgenstern,Fantasy,498
+87,The Light Between Oceans,M.L. Stedman,Drama,344
+88,The Book of Longings,Sue Monk Kidd,Fiction,448
+89,Little Fires Everywhere,Celeste Ng,Drama,338
+90,The Water Dancer,Ta-Nehisi Coates,Historical Fiction,416
+91,The Song of Solomon,Toni Morrison,Classic,337
+92,An American Marriage,Tayari Jones,Fiction,336
+93,The Great Alone,Kristin Hannah,Historical Fiction,434
+94,The Sun Down Hotel,Susan Mallery,Romance,448
+95,Homegoing,Yaa Gyasi,Fiction,300
+96,The Overstory,Richard Powers,Fiction,512
+97,The Last Mrs. Parrish,Liv Constantine,Thriller,384
+98,Before We Were Strangers,Renee Carlino,Romance,352
+99,The Widow,Carmen Amato,Thriller,368
+100,The Wife Between Us,Greer Hendricks & Sarah Pekkanen,Thriller,368
+101,The Silent Corner,Dean Koontz,Thriller,464
+102,The Light We Lost,Jill Santopolo,Romance,368
+103,The Art of Racing in the Rain,Garth Stein,Drama,321
+104,Station Eleven,Emily St. John Mandel,Dystopian,336
+105,The Circle,David Eggers,Dystopian,502
+106,The Nightingale,Kristin Hannah,Historical Fiction,440
+107,The 5th Wave,Rick Yancey,Science Fiction,457
+108,The Maze Runner,James Dashner,Dystopian,374
+109,Where the Crawdads Sing,Delia Owens,Mystery,368
+110,The Outsider,Stephen King,Horror,576
+111,The Shadow of the Wind,Carlos Ruiz Zafón,Fiction,487
+112,The Immortalists,Chloe Benjamin,Fiction,368
+113,Little Fires Everywhere,Celeste Ng,Drama,338
+114,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+115,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+116,The Woman in the Window,A.J. Finn,Thriller,448
+117,The Night Circus,Erin Morgenstern,Fantasy,387
+118,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+119,Before We Were Strangers,Renee Carlino,Romance,352
+120,The Overstory,Richard Powers,Fiction,512
+121,An American Marriage,Tayari Jones,Fiction,336
+122,Educated,Tara Westover,Non-Fiction,334
+123,The Hate U Give,Angie Thomas,Young Adult,444
+124,The Girl on the Train,Paula Hawkins,Thriller,395
+125,The Woman in Cabin 10,Ruth Ware,Thriller,336
+126,The Little Friend,Donna Tartt,Fiction,529
+127,The Lovely Bones,Alice Sebold,Drama,328
+128,Big Little Lies,Liane Moriarty,Drama,460
+129,The Girl with the Louding Voice,Abi Daré,Fiction,387
+130,The Vanishing Half,Britt Bennett,Fiction,343
+131,The Midnight Library,Matt Haig,Fiction,304
+132,The City We Became,N.K. Jemisin,Fantasy,431
+133,The Song of Achilles,Madeline Miller,Romance,379
+134,Homegoing,Yaa Gyasi,Fiction,300
+135,The Light Between Oceans,M.L. Stedman,Drama,344
+136,The Paper Palace,Miranda Cowley Heller,Drama,416
+137,The Seven Husbands of Evelyn Hugo,Taylor Jenkins Reid,Romance,391
+138,The Book Thief,Markus Zusak,Fiction,552
+139,The Goldfinch,Donna Tartt,Fiction,771
+140,The Secret History,Donna Tartt,Fiction,559
+141,The Twelve Lives of Samuel Hawley,Hannah Tinti,Fiction,374
+142,The Library Book,Susan Orlean,Non-Fiction,336
+143,The Island of Sea Women,Lisa See,Historical Fiction,374
+144,The French Lieutnant's Woman,John Fowles,Fiction,488
+145,The Curious Incident of the Dog in the Night-Time,Mark Haddon,Fiction,226
+146,The Secret Garden,Frances Hodgson Burnett,Children's,331
+147,The Help,Kathryn Stockett,Historical Fiction,444
+148,The Thirteenth Tale,Diane Setterfield,Fiction,416
+149,The Book of M,P.O. Enquist,Fiction,394
+150,The Night Watchman,Louise Erdrich,Historical Fiction,464
+151,The Silent Patient,Alex Michaelides,Thriller,325
+152,The Dutch House,Ann Patchett,Fiction,337
+153,The Woman in the Window,A.J. Finn,Thriller,448
+154,The Alice Network,Kate Quinn,Historical Fiction,528
+155,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+156,The Storyteller,Jodi Picoult,Fiction,482
+157,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+158,The Book of Longings,Sue Monk Kidd,Fiction,448
+159,The Last Mrs. Parrish,Liv Constantine,Thriller,384
+160,The Cabin at the End of the World,Paul Tremblay,Horror,336
+161,The Last Thing He Told Me,Laura Dave,Thriller,336
+162,The Girl Who Lived,A.L. Jackson,Thriller,325
+163,The Shadows,Alex Michaelides,Thriller,400
+164,The Hating Game,Sally Thorne,Romance,368
+165,The Sun Down Hotel,Susan Mallery,Romance,448
+166,The Lying Game,Ruth Ware,Thriller,416
+167,The Escape Room,Meghan Scott Molin,Thriller,339
+168,The Good Daughter,Karin Slaughter,Thriller,485
+169,The 100-Year-Old Man Who Climbed Out the Window and Disappeared,Jonas Jonasson,Comedy,400
+170,The Rosie Project,Graeme Simsion,Romance,295
+171,The Couple Next Door,Shari Lapena,Thriller,310
+172,The Woman in Cabin 10,Ruth Ware,Thriller,336
+173,The Girl Before,J.P. Delaney,Thriller,338
+174,The Wife Between Us,Greer Hendricks & Sarah Pekkanen,Thriller,368
+175,The Couple Next Door,Shari Lapena,Thriller,310
+176,The Last Time I Saw You,Emily A. Benet,Thriller,400
+177,The Night Watchman,Louise Erdrich,Historical Fiction,464
+178,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+179,The Girl with the Louding Voice,Abi Daré,Fiction,387
+180,The Paper Palace,Miranda Cowley Heller,Drama,416
+181,The Silent Patient,Alex Michaelides,Thriller,325
+182,The Vanishing Half,Britt Bennett,Fiction,343
+183,The Lost Apothecary,Sarah Penner,Historical Fiction,320
+184,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+185,The Light We Lost,Jill Santopolo,Romance,368
+186,The Midnight Library,Matt Haig,Fiction,304
+187,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+188,The Silent Patient,Alex Michaelides,Thriller,325
+189,The Lost City of Z,David Grann,Non-Fiction,414
+190,The Great Alone,Kristin Hannah,Historical Fiction,434
+191,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+192,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+193,The Art of Racing in the Rain,Garth Stein,Drama,321
+194,The Book of Longings,Sue Monk Kidd,Fiction,448
+195,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+196,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+197,The Light Between Oceans,M.L. Stedman,Drama,344
+198,The Last Thing He Told Me,Laura Dave,Thriller,336
+199,The Nightingale,Kristin Hannah,Historical Fiction,440
+200,The Lost Apothecary,Sarah Penner,Historical Fiction,320
+201,The Girl on the Train,Paula Hawkins,Thriller,395
+202,The Water Dancer,Ta-Nehisi Coates,Historical Fiction,416
+203,The Vanishing Half,Britt Bennett,Fiction,343
+204,Where the Crawdads Sing,Delia Owens,Mystery,368
+205,Big Little Lies,Liane Moriarty,Drama,460
+206,The Immortalists,Chloe Benjamin,Fiction,368
+207,The Night Circus,Erin Morgenstern,Fantasy,387
+208,The Light We Lost,Jill Santopolo,Romance,368
+209,The Book Thief,Markus Zusak,Fiction,552
+210,The Secret History,Donna Tartt,Fiction,559
+211,The Goldfinch,Donna Tartt,Fiction,771
+212,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+213,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+214,The Song of Achilles,Madeline Miller,Romance,379
+215,The Last Time I Saw You,Emily A. Benet,Thriller,400
+216,The Library Book,Susan Orlean,Non-Fiction,336
+217,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+218,The Seven Husbands of Evelyn Hugo,Taylor Jenkins Reid,Romance,391
+219,The Little Friend,Donna Tartt,Fiction,529
+220,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+221,The Shadow of the Wind,Carlos Ruiz Zafón,Fiction,487
+222,The Alice Network,Kate Quinn,Historical Fiction,528
+223,The Book of Longings,Sue Monk Kidd,Fiction,448
+224,The Secret Garden,Frances Hodgson Burnett,Children's,331
+225,The Night Watchman,Louise Erdrich,Historical Fiction,464
+226,The Last Mrs. Parrish,Liv Constantine,Thriller,384
+227,The Art of Racing in the Rain,Garth Stein,Drama,321
+228,The Light Between Oceans,M.L. Stedman,Drama,344
+229,The Girl Before,J.P. Delaney,Thriller,338
+230,The Woman in Cabin 10,Ruth Ware,Thriller,336
+231,The Silent Patient,Alex Michaelides,Thriller,325
+232,The Midnight Library,Matt Haig,Fiction,304
+233,The Girl with the Louding Voice,Abi Daré,Fiction,387
+234,The Paper Palace,Miranda Cowley Heller,Drama,416
+235,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+236,The Last Thing He Told Me,Laura Dave,Thriller,336
+237,The Vanishing Half,Britt Bennett,Fiction,343
+238,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+239,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+240,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+241,The Great Alone,Kristin Hannah,Historical Fiction,434
+242,The Goldfinch,Donna Tartt,Fiction,771
+243,The Light We Lost,Jill Santopolo,Romance,368
+244,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+245,The Book Thief,Markus Zusak,Fiction,552
+246,The Secret History,Donna Tartt,Fiction,559
+247,The Immortalists,Chloe Benjamin,Fiction,368
+248,The Song of Achilles,Madeline Miller,Romance,379
+249,The Night Circus,Erin Morgenstern,Fantasy,387
+250,The Midnight Library,Matt Haig,Fiction,304
+251,The Lost Apothecary,Sarah Penner,Historical Fiction,320
+252,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+253,The Woman in the Window,A.J. Finn,Thriller,448
+254,The Book of Longings,Sue Monk Kidd,Fiction,448
+255,The Vanishing Half,Britt Bennett,Fiction,343
+256,The Water Dancer,Ta-Nehisi Coates,Historical Fiction,416
+257,The Silent Patient,Alex Michaelides,Thriller,325
+258,The Paper Palace,Miranda Cowley Heller,Drama,416
+259,The Girl with the Louding Voice,Abi Daré,Fiction,387
+260,The Girl Before,J.P. Delaney,Thriller,338
+261,The Secret Garden,Frances Hodgson Burnett,Children's,331
+262,The Library Book,Susan Orlean,Non-Fiction,336
+263,The Light Between Oceans,M.L. Stedman,Drama,344
+264,The Midnight Library,Matt Haig,Fiction,304
+265,The Great Alone,Kristin Hannah,Historical Fiction,434
+266,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+267,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+268,The Light We Lost,Jill Santopolo,Romance,368
+269,The Immortalists,Chloe Benjamin,Fiction,368
+270,The Song of Achilles,Madeline Miller,Romance,379
+271,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+272,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+273,The Water Dancer,Ta-Nehisi Coates,Historical Fiction,416
+274,The Vanishing Half,Britt Bennett,Fiction,343
+275,The Girl with the Louding Voice,Abi Daré,Fiction,387
+276,The Silent Patient,Alex Michaelides,Thriller,325
+277,The Book Thief,Markus Zusak,Fiction,552
+278,The Great Alone,Kristin Hannah,Historical Fiction,434
+279,The Midnight Library,Matt Haig,Fiction,304
+280,The Light Between Oceans,M.L. Stedman,Drama,344
+281,The Night Circus,Erin Morgenstern,Fantasy,387
+282,The Paper Palace,Miranda Cowley Heller,Drama,416
+283,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+284,The Book of Longings,Sue Monk Kidd,Fiction,448
+285,The Vanishing Half,Britt Bennett,Fiction,343
+286,The Girl Before,J.P. Delaney,Thriller,338
+287,The Woman in Cabin 10,Ruth Ware,Thriller,336
+288,The Secret History,Donna Tartt,Fiction,559
+289,The Immortalists,Chloe Benjamin,Fiction,368
+290,The Song of Achilles,Madeline Miller,Romance,379
+291,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+292,The Light We Lost,Jill Santopolo,Romance,368
+293,The Water Dancer,Ta-Nehisi Coates,Historical Fiction,416
+294,The Girl with the Louding Voice,Abi Daré,Fiction,387
+295,The Night Circus,Erin Morgenstern,Fantasy,387
+296,The Midnight Library,Matt Haig,Fiction,304
+297,The Paper Palace,Miranda Cowley Heller,Drama,416
+298,The Book Thief,Markus Zusak,Fiction,552
+299,The Great Alone,Kristin Hannah,Historical Fiction,434
+300,The Vanishing Half,Britt Bennett,Fiction,343
+301,The Woman in Cabin 10,Ruth Ware,Thriller,336
+302,The Silent Patient,Alex Michaelides,Thriller,325
+303,The Midnight Library,Matt Haig,Fiction,304
+304,The Vanishing Half,Britt Bennett,Fiction,343
+305,The Light We Lost,Jill Santopolo,Romance,368
+306,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+307,The Water Dancer,Ta-Nehisi Coates,Historical Fiction,416
+308,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+309,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+310,The Paper Palace,Miranda Cowley Heller,Drama,416
+311,The Girl with the Louding Voice,Abi Daré,Fiction,387
+312,The Song of Achilles,Madeline Miller,Romance,379
+313,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+314,The Secret History,Donna Tartt,Fiction,559
+315,The Goldfinch,Donna Tartt,Fiction,771
+316,The Great Alone,Kristin Hannah,Historical Fiction,434
+317,The Book Thief,Markus Zusak,Fiction,552
+318,The Immortalists,Chloe Benjamin,Fiction,368
+319,The Night Circus,Erin Morgenstern,Fantasy,387
+320,The Light Between Oceans,M.L. Stedman,Drama,344
+321,The Last Thing He Told Me,Laura Dave,Thriller,336
+322,The Girl on the Train,Paula Hawkins,Thriller,395
+323,The Couple Next Door,Shari Lapena,Thriller,310
+324,The Girl Before,J.P. Delaney,Thriller,338
+325,The Woman in the Window,A.J. Finn,Thriller,448
+326,The Water Dancer,Ta-Nehisi Coates,Historical Fiction,416
+327,The Nightingale,Kristin Hannah,Historical Fiction,440
+328,The Lost Apothecary,Sarah Penner,Historical Fiction,320
+329,The Book of Longings,Sue Monk Kidd,Fiction,448
+330,The Silent Patient,Alex Michaelides,Thriller,325
+331,The Vanishing Half,Britt Bennett,Fiction,343
+332,The Paper Palace,Miranda Cowley Heller,Drama,416
+333,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+334,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+335,The Light We Lost,Jill Santopolo,Romance,368
+336,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+337,The Immortalists,Chloe Benjamin,Fiction,368
+338,The Song of Achilles,Madeline Miller,Romance,379
+339,The Midnight Library,Matt Haig,Fiction,304
+340,The Girl with the Louding Voice,Abi Daré,Fiction,387
+341,The Book Thief,Markus Zusak,Fiction,552
+342,The Goldfinch,Donna Tartt,Fiction,771
+343,The Great Alone,Kristin Hannah,Historical Fiction,434
+344,The Secret History,Donna Tartt,Fiction,559
+345,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+346,The Light Between Oceans,M.L. Stedman,Drama,344
+347,The Woman in Cabin 10,Ruth Ware,Thriller,336
+348,The Girl Before,J.P. Delaney,Thriller,338
+349,The Night Circus,Erin Morgenstern,Fantasy,387
+350,The Last Thing He Told Me,Laura Dave,Thriller,336
+351,The Paper Palace,Miranda Cowley Heller,Drama,416
+352,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+353,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+354,The Silent Patient,Alex Michaelides,Thriller,325
+355,The Vanishing Half,Britt Bennett,Fiction,343
+356,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+357,The Light We Lost,Jill Santopolo,Romance,368
+358,The Girl with the Louding Voice,Abi Daré,Fiction,387
+359,The Great Alone,Kristin Hannah,Historical Fiction,434
+360,The Book Thief,Markus Zusak,Fiction,552
+361,The Immortalists,Chloe Benjamin,Fiction,368
+362,The Night Circus,Erin Morgenstern,Fantasy,387
+363,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+364,The Light Between Oceans,M.L. Stedman,Drama,344
+365,The Woman in Cabin 10,Ruth Ware,Thriller,336
+366,The Girl Before,J.P. Delaney,Thriller,338
+367,The Last Thing He Told Me,Laura Dave,Thriller,336
+368,The Paper Palace,Miranda Cowley Heller,Drama,416
+369,The Book of Longings,Sue Monk Kidd,Fiction,448
+370,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+371,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+372,The Girl with the Louding Voice,Abi Daré,Fiction,387
+373,The Silent Patient,Alex Michaelides,Thriller,325
+374,The Vanishing Half,Britt Bennett,Fiction,343
+375,The Light We Lost,Jill Santopolo,Romance,368
+376,The Great Alone,Kristin Hannah,Historical Fiction,434
+377,The Book Thief,Markus Zusak,Fiction,552
+378,The Immortalists,Chloe Benjamin,Fiction,368
+379,The Night Circus,Erin Morgenstern,Fantasy,387
+380,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+381,The Light Between Oceans,M.L. Stedman,Drama,344
+382,The Woman in Cabin 10,Ruth Ware,Thriller,336
+383,The Girl Before,J.P. Delaney,Thriller,338
+384,The Last Thing He Told Me,Laura Dave,Thriller,336
+385,The Paper Palace,Miranda Cowley Heller,Drama,416
+386,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+387,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+388,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+389,The Girl with the Louding Voice,Abi Daré,Fiction,387
+390,The Silent Patient,Alex Michaelides,Thriller,325
+391,The Vanishing Half,Britt Bennett,Fiction,343
+392,The Light We Lost,Jill Santopolo,Romance,368
+393,The Great Alone,Kristin Hannah,Historical Fiction,434
+394,The Book Thief,Markus Zusak,Fiction,552
+395,The Immortalists,Chloe Benjamin,Fiction,368
+396,The Night Circus,Erin Morgenstern,Fantasy,387
+397,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+398,The Light Between Oceans,M.L. Stedman,Drama,344
+399,The Woman in Cabin 10,Ruth Ware,Thriller,336
+400,The Girl Before,J.P. Delaney,Thriller,338
+401,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+402,The Nightingale,Kristin Hannah,Historical Fiction,440
+403,The Girl with the Louding Voice,Abi Daré,Fiction,387
+404,The Vanishing Half,Britt Bennett,Fiction,343
+405,The Silent Patient,Alex Michaelides,Thriller,325
+406,The Book Thief,Markus Zusak,Fiction,552
+407,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+408,The Light We Lost,Jill Santopolo,Romance,368
+409,The Paper Palace,Miranda Cowley Heller,Drama,416
+410,The Midnight Library,Matt Haig,Fiction,304
+411,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+412,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+413,The Immortalists,Chloe Benjamin,Fiction,368
+414,The Night Circus,Erin Morgenstern,Fantasy,387
+415,The Great Alone,Kristin Hannah,Historical Fiction,434
+416,The Light Between Oceans,M.L. Stedman,Drama,344
+417,The Woman in Cabin 10,Ruth Ware,Thriller,336
+418,The Girl Before,J.P. Delaney,Thriller,338
+419,The Last Thing He Told Me,Laura Dave,Thriller,336
+420,The Book of Longings,Sue Monk Kidd,Fiction,448
+421,The Lost Apothecary,Sarah Penner,Historical Fiction,320
+422,The City We Became,N.K. Jemisin,Fantasy,431
+423,The Night Watchman,Louise Erdrich,Historical Fiction,464
+424,The Light We Lost,Jill Santopolo,Romance,368
+425,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+426,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+427,The Silent Patient,Alex Michaelides,Thriller,325
+428,The Vanishing Half,Britt Bennett,Fiction,343
+429,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+430,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+431,The Girl with the Louding Voice,Abi Daré,Fiction,387
+432,The Paper Palace,Miranda Cowley Heller,Drama,416
+433,The Midnight Library,Matt Haig,Fiction,304
+434,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+435,The Nightingale,Kristin Hannah,Historical Fiction,440
+436,The Great Alone,Kristin Hannah,Historical Fiction,434
+437,The Book Thief,Markus Zusak,Fiction,552
+438,The Immortalists,Chloe Benjamin,Fiction,368
+439,The Light Between Oceans,M.L. Stedman,Drama,344
+440,The Woman in Cabin 10,Ruth Ware,Thriller,336
+441,The Girl Before,J.P. Delaney,Thriller,338
+442,The Last Thing He Told Me,Laura Dave,Thriller,336
+443,The Book of Longings,Sue Monk Kidd,Fiction,448
+444,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+445,The Lost Apothecary,Sarah Penner,Historical Fiction,320
+446,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+447,The Night Watchman,Louise Erdrich,Historical Fiction,464
+448,The City We Became,N.K. Jemisin,Fantasy,431
+449,The Light We Lost,Jill Santopolo,Romance,368
+450,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+451,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+452,The Silent Patient,Alex Michaelides,Thriller,325
+453,The Vanishing Half,Britt Bennett,Fiction,343
+454,The Girl with the Louding Voice,Abi Daré,Fiction,387
+455,The Paper Palace,Miranda Cowley Heller,Drama,416
+456,The Midnight Library,Matt Haig,Fiction,304
+457,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+458,The Nightingale,Kristin Hannah,Historical Fiction,440
+459,The Great Alone,Kristin Hannah,Historical Fiction,434
+460,The Book Thief,Markus Zusak,Fiction,552
+461,The Immortalists,Chloe Benjamin,Fiction,368
+462,The Light Between Oceans,M.L. Stedman,Drama,344
+463,The Woman in Cabin 10,Ruth Ware,Thriller,336
+464,The Girl Before,J.P. Delaney,Thriller,338
+465,The Last Thing He Told Me,Laura Dave,Thriller,336
+466,The Book of Longings,Sue Monk Kidd,Fiction,448
+467,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+468,The Lost Apothecary,Sarah Penner,Historical Fiction,320
+469,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+470,The Night Watchman,Louise Erdrich,Historical Fiction,464
+471,The City We Became,N.K. Jemisin,Fantasy,431
+472,The Light We Lost,Jill Santopolo,Romance,368
+473,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+474,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+475,The Silent Patient,Alex Michaelides,Thriller,325
+476,The Vanishing Half,Britt Bennett,Fiction,343
+477,The Girl with the Louding Voice,Abi Daré,Fiction,387
+478,The Paper Palace,Miranda Cowley Heller,Drama,416
+479,The Midnight Library,Matt Haig,Fiction,304
+480,The Tattooist of Auschwitz,Heather Morris,Historical Fiction,288
+481,The Nightingale,Kristin Hannah,Historical Fiction,440
+482,The Great Alone,Kristin Hannah,Historical Fiction,434
+483,The Book Thief,Markus Zusak,Fiction,552
+484,The Immortalists,Chloe Benjamin,Fiction,368
+485,The Light Between Oceans,M.L. Stedman,Drama,344
+486,The Woman in Cabin 10,Ruth Ware,Thriller,336
+487,The Girl Before,J.P. Delaney,Thriller,338
+488,The Last Thing He Told Me,Laura Dave,Thriller,336
+489,The Book of Longings,Sue Monk Kidd,Fiction,448
+490,The Paris Library,Janet Skeslien Charles,Historical Fiction,392
+491,The Lost Apothecary,Sarah Penner,Historical Fiction,320
+492,The Invisible Life of Addie LaRue,V.E. Schwab,Fantasy,448
+493,The Night Watchman,Louise Erdrich,Historical Fiction,464
+494,The City We Became,N.K. Jemisin,Fantasy,431
+495,The Light We Lost,Jill Santopolo,Romance,368
+496,The Giver of Stars,Jojo Moyes,Historical Fiction,400
+497,The Book of Lost Names,Kristin Harmel,Historical Fiction,400
+498,The Silent Patient,Alex Michaelides,Thriller,325
+499,The Vanishing Half,Britt Bennett,Fiction,343
+500,The Girl with the Louding Voice,Abi Daré,Fiction,387
