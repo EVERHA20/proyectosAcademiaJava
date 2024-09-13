@@ -1,0 +1,12 @@
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=bookstore'
+      - 'MYSQL_ROOT_HOST: localhost'
+      - 'MYSQL_ROOT_PASSWORD=password'
+      - 'MYSQL_ROOT_USER: root'
+    ports:
+      - '3306'
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d
