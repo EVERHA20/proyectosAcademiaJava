@@ -2,7 +2,6 @@ package com.academia.bookstore.controllers;
 
 import com.academia.bookstore.dto.UserRequest;
 import com.academia.bookstore.dto.UserUpdateRequest;
-import com.academia.bookstore.exception.UserNotFoundException;
 import com.academia.bookstore.models.Role;
 import com.academia.bookstore.models.User;
 import com.academia.bookstore.services.RoleService;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -34,8 +32,14 @@ public class UserController {
             roleService.getRoleByName(roleName)
                     .ifPresent(roles::add);
         }
-        User user = userService.createUser(userRequest.getUsername(), userRequest.getPassword(), roles);
+        User user = userService.createUser(userRequest.getUsername(), userRequest.getPassword(), userRequest.getEmail(), roles);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
+    
+    @GetMapping
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/{id}")
@@ -60,7 +64,7 @@ public class UserController {
             roleService.getRoleByName(roleName)
                     .ifPresent(roles::add);
         }
-        User updatedUser = userService.updateUser(id, userUpdateRequest.getUsername(), userUpdateRequest.getPassword(), roles);
+        User updatedUser = userService.updateUser(id, userUpdateRequest.getUsername(), userUpdateRequest.getPassword(), userUpdateRequest.getEmail(), roles);
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 

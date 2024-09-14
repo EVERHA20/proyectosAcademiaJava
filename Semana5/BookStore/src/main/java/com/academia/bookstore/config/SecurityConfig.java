@@ -45,7 +45,7 @@ public class SecurityConfig {
         		.authorizeHttpRequests(authz -> authz
                 .requestMatchers(HttpMethod.POST, "/api/store/**").hasRole("USER")
                 .requestMatchers(HttpMethod.GET, "/api/store/**").hasRole("USER")
-                .requestMatchers("/api/roles/**", "/api/genres/**", "/api/users/**", "/api/books/**").hasRole("ADMIN")
+                .requestMatchers("/api/store/**", "/api/roles/**", "/api/genres/**", "/api/users/**", "/api/books/**", "/control/**").hasRole("ADMIN")
                 .anyRequest().permitAll()
             )
             .httpBasic(Customizer.withDefaults());        

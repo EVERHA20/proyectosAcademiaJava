@@ -5,13 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
-
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -34,6 +30,9 @@ public class User {
     @Column(nullable = false)
     private Boolean enabled;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "user_roles",
@@ -42,10 +41,10 @@ public class User {
     )
     @JsonManagedReference
     private Set<Role> roles = new HashSet<>();
-    
+
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, enabled);
+        return Objects.hash(id, username, password, enabled, email);
     }
 
     @Override
@@ -53,15 +52,20 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return enabled == user.enabled &&
+        return enabled.equals(user.enabled) &&
                Objects.equals(id, user.id) &&
                Objects.equals(username, user.username) &&
-               Objects.equals(password, user.password);
+               Objects.equals(password, user.password) &&
+               Objects.equals(email, user.email);
     }
-    
+
     @Override
     public String toString() {
-        return "User{id=" + id + ", username='" + username + "', enabled=" + enabled + "}";
+        return "User{" +
+               "id=" + id +
+               ", username='" + username + '\'' +
+               ", enabled=" + enabled +
+               ", email='" + email + '\'' +
+               '}';
     }
-    
 }

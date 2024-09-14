@@ -1,199 +1,140 @@
 package com.academia.bookstore.controllers;
 
-import com.academia.bookstore.controllers.StoreController;
 import com.academia.bookstore.dto.StoreResponse;
 import com.academia.bookstore.models.Book;
-import com.academia.bookstore.models.Genre;
 import com.academia.bookstore.services.BookService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.http.MediaType;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
-import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
-import static org.mockito.ArgumentMatchers.anyDouble;
-import static org.mockito.ArgumentMatchers.anyList;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest
-@AutoConfigureMockMvc
 public class StoreControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
+    @Mock
     private BookService bookService;
 
-    @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetAllBooks() throws Exception {
-        Book book = new Book();
-        book.setId(1L);
-        book.setTitle("Book1");
-        book.setAuthor("Author1");
-        book.setPrice(25.00);
-        book.setPages(300);
+    @InjectMocks
+    private StoreController storeController;
 
-        List<Book> books = Arrays.asList(book);
-        when(bookService.getAllBooks()).thenReturn(books);
+    private MockMvc mockMvc;
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/store")
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value("Book1"));
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(storeController).build();
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetBooksByTitle() throws Exception {
-        String title = "Book1";
-        Book book = new Book();
-        book.setId(1L);
-        book.setTitle(title);
-        book.setAuthor("Author1");
-        book.setPrice(25.00);
-        book.setPages(300);
+    public void getAllBooks_ReturnsBooks() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+        Book book2 = new Book(2L, "Title2", "Author2", 29.99, 250, Collections.emptySet());
 
-        List<Book> books = Arrays.asList(book);
-        when(bookService.getBooksByTitle(title)).thenReturn(books);
+        when(bookService.getAllBooks()).thenReturn(Arrays.asList(book1, book2));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/store/search")
-                .param("title", title)
-                .accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/api/store"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value(title));
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[0].title").value("Title1"))
+                .andExpect(jsonPath("$[1].id").value(2))
+                .andExpect(jsonPath("$[1].title").value("Title2"));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetBooksByGenre() throws Exception {
-        Long genreId = 1L;
-        Book book = new Book();
-        book.setId(1L);
-        book.setTitle("Book1");
-        book.setAuthor("Author1");
-        book.setPrice(25.00);
-        book.setPages(300);
+    public void getBooksByTitle_ReturnsBooks() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+        Book book2 = new Book(2L, "Title1", "Author2", 29.99, 250, Collections.emptySet());
 
-        List<Book> books = Arrays.asList(book);
-        when(bookService.getBooksByGenre(genreId)).thenReturn(books);
+        when(bookService.getBooksByTitle(anyString())).thenReturn(Arrays.asList(book1, book2));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/store/bygenre/{genreId}", genreId)
-                .accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/api/store/search?title=Title1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value("Book1"));
+                .andExpect(jsonPath("$[0].title").value("Title1"))
+                .andExpect(jsonPath("$[1].title").value("Title1"));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetBooksByPriceMoreThan() throws Exception {
-        double price = 19.99;
-        Book book = new Book();
-        book.setId(1L);
-        book.setTitle("Book1");
-        book.setAuthor("Author1");
-        book.setPrice(25.00);
-        book.setPages(300);
+    public void getBooksByGenre_ReturnsBooks() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+        Book book2 = new Book(2L, "Title2", "Author2", 29.99, 250, Collections.emptySet());
 
-        List<Book> books = Arrays.asList(book);
-        when(bookService.getBooksMoreThanPrice(price)).thenReturn(books);
+        when(bookService.getBooksByGenre(anyLong())).thenReturn(Arrays.asList(book1, book2));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/store/books/by-price")
-                .param("price", String.valueOf(price))
-                .param("moreThan", "true")
-                .accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/api/store/bygenre/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value("Book1"));
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[1].id").value(2));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetBooksByPriceLessThan() throws Exception {
-        double price = 19.99;
-        Book book = new Book();
-        book.setId(1L);
-        book.setTitle("Book1");
-        book.setAuthor("Author1");
-        book.setPrice(15.00);
-        book.setPages(300);
+    public void getBooksByPrice_ReturnsBooksMoreThanPrice() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+        Book book2 = new Book(2L, "Title2", "Author2", 29.99, 250, Collections.emptySet());
 
-        List<Book> books = Arrays.asList(book);
-        when(bookService.getBooksLessThanPrice(price)).thenReturn(books);
+        when(bookService.getBooksMoreThanPrice(anyDouble())).thenReturn(Arrays.asList(book2));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/store/books/by-price")
-                .param("price", String.valueOf(price))
-                .param("moreThan", "false")
-                .accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/api/store/books/by-price")
+                        .param("price", "20")
+                        .param("moreThan", "true"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value("Book1"));
+                .andExpect(jsonPath("$[0].id").value(2));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testProcessBooks() throws Exception {
-        List<Long> bookIds = Arrays.asList(1L, 2L, 3L);
+    public void getBooksByPrice_ReturnsBooksLessThanPrice() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
 
-        Book book1 = new Book();
-        book1.setId(1L);
-        book1.setTitle("Dune");
-        book1.setAuthor("Frank Herbert");
-        book1.setPrice(9.99);
-        book1.setPages(412);
+        when(bookService.getBooksLessThanPrice(anyDouble())).thenReturn(Arrays.asList(book1));
 
-        Book book2 = new Book();
-        book2.setId(2L);
-        book2.setTitle("The Hobbit");
-        book2.setAuthor("J.R.R. Tolkien");
-        book2.setPrice(12.99);
-        book2.setPages(310);
+        mockMvc.perform(get("/api/store/books/by-price")
+                        .param("price", "20")
+                        .param("moreThan", "false"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1));
+    }
 
-        Book book3 = new Book();
-        book3.setId(3L);
-        book3.setTitle("The Da Vinci Code");
-        book3.setAuthor("Dan Brown");
-        book3.setPrice(14.99);
-        book3.setPages(489);
+    @Test
+    public void processBooks_ReturnsStoreResponse() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+        Book book2 = new Book(2L, "Title2", "Author2", 29.99, 250, Collections.emptySet());
 
-        List<Book> books = Arrays.asList(book1, book2, book3);
-        double totalPrice = 37.97;
-        double totalPriceWithVAT = 45.9437;
+        when(bookService.getBooksByIds(anyList())).thenReturn(Arrays.asList(book1, book2));
+        when(bookService.calculateTotalPrice(anyList())).thenReturn(49.98);
+        when(bookService.calculateTotalPriceWithVAT(anyList(), anyDouble())).thenReturn(60.18);
 
-        when(bookService.getBooksByIds(bookIds)).thenReturn(books);
-        when(bookService.calculateTotalPrice(books)).thenReturn(totalPrice);
-        when(bookService.calculateTotalPriceWithVAT(books, 21.0)).thenReturn(totalPriceWithVAT);
+        StoreResponse storeResponse = new StoreResponse();
+        storeResponse.setBooks(Arrays.asList(book1, book2));
+        storeResponse.setTotalPrice(49.98);
+        storeResponse.setTotalPriceWithVAT(60.18);
 
         mockMvc.perform(post("/api/store/buybooks")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("[1, 2, 3]"))
+                        .contentType("application/json")
+                        .content("[1, 2]"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.totalPrice").value(totalPrice))
-                .andExpect(jsonPath("$.totalPriceWithVAT").value(totalPriceWithVAT))
-                .andExpect(jsonPath("$.books[0].title").value("Dune"))
-                .andExpect(jsonPath("$.books[1].title").value("The Hobbit"))
-                .andExpect(jsonPath("$.books[2].title").value("The Da Vinci Code"));
+                .andExpect(jsonPath("$.totalPrice").value(49.98))
+                .andExpect(jsonPath("$.totalPriceWithVAT").value(60.18));
+    }
+
+    @Test
+    public void processBooks_ReturnsNotFound() throws Exception {
+        when(bookService.getBooksByIds(anyList())).thenReturn(Collections.emptyList());
+
+        mockMvc.perform(post("/api/store/buybooks")
+                        .contentType("application/json")
+                        .content("[1, 2]"))
+                .andExpect(status().isNotFound());
     }
 }

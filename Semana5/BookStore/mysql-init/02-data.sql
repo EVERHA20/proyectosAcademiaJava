@@ -1,6 +1,6 @@
-INSERT INTO `user` (username, password, enabled) VALUES
-('user', 'user', b'1'),
-('admin', 'admin', b'1');
+INSERT INTO `user` (username, password, email, enabled) VALUES
+('user', 'user', 'user@example.com', b'1'),
+('admin', 'admin', 'admin@example.com', b'1');
 
 INSERT INTO `roles` (role_name) VALUES
 ('ROLE_USER'),

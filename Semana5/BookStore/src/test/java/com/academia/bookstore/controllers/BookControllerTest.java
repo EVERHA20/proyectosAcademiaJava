@@ -3,234 +3,201 @@ package com.academia.bookstore.controllers;
 import com.academia.bookstore.exception.BookNotFoundException;
 import com.academia.bookstore.exception.GenreNotFoundException;
 import com.academia.bookstore.models.Book;
-import com.academia.bookstore.models.Genre;
 import com.academia.bookstore.services.BookService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyList;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-public class BookControllerTest2 {
+public class BookControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
+    @Mock
     private BookService bookService;
 
-    @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetAllBooks() throws Exception {
-        Set<Genre> genres = new HashSet<>(); // Initialize genres if necessary
-        List<Book> books = Arrays.asList(new Book(1L, "Book1", "Author1", 25.00, 300, genres));
-        when(bookService.getAllBooks()).thenReturn(books);
+    @InjectMocks
+    private BookController bookController;
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/books")
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value("Book1"));
+    private MockMvc mockMvc;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        mockMvc = MockMvcBuilders.standaloneSetup(bookController).build();
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetBookById() throws Exception {
-        Long bookId = 1L;
-        Set<Genre> genres = new HashSet<>();
-        Book book = new Book(bookId, "Book1", "Author1", 25.00, 300, genres);
-        when(bookService.getBookById(bookId)).thenReturn(Optional.of(book));
+    public void getAllBooks_ReturnsBooks() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+        Book book2 = new Book(2L, "Title2", "Author2", 29.99, 250, Collections.emptySet());
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/books/{id}", bookId)
-                .accept(MediaType.APPLICATION_JSON))
+        when(bookService.getAllBooks()).thenReturn(Arrays.asList(book1, book2));
+
+        mockMvc.perform(get("/api/books"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.title").value("Book1"));
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[0].title").value("Title1"))
+                .andExpect(jsonPath("$[1].id").value(2))
+                .andExpect(jsonPath("$[1].title").value("Title2"));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetBookByIdNotFound() throws Exception {
-        Long bookId = 1L;
-        when(bookService.getBookById(bookId)).thenReturn(Optional.empty());
+    public void getBookById_ReturnsBook() throws Exception {
+        Book book = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/books/{id}", bookId)
-                .accept(MediaType.APPLICATION_JSON))
+        when(bookService.getBookById(anyLong())).thenReturn(Optional.of(book));
+
+        mockMvc.perform(get("/api/books/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.title").value("Title1"));
+    }
+
+    @Test
+    public void getBookById_ReturnsNotFound() throws Exception {
+        when(bookService.getBookById(anyLong())).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/books/1"))
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testCreateBook() throws Exception {
-        Set<Genre> genres = new HashSet<>();
-        Book book = new Book(1L, "Book1", "Author1", 25.00, 300, genres);
+    public void createBook_ReturnsCreated() throws Exception {
+        Book book = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+
         when(bookService.saveBook(any(Book.class))).thenReturn(book);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/books")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"title\":\"Book1\",\"author\":\"Author1\",\"price\":25.00,\"pages\":300}"))
+        mockMvc.perform(post("/api/books")
+                        .contentType("application/json")
+                        .content("{\"title\": \"Title1\", \"author\": \"Author1\", \"price\": 19.99, \"pages\": 300}"))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.title").value("Book1"));
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.title").value("Title1"));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testAddGenresToBook() throws Exception {
-        Long bookId = 1L;
-        List<Long> genreIds = Arrays.asList(1L, 2L);
-        Set<Genre> genres = new HashSet<>();
-        Book book = new Book(bookId, "Book1", "Author1", 25.00, 300, genres);
+    public void addGenresToBook_ReturnsUpdatedBook() throws Exception {
+        Book book = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+
         when(bookService.addGenresToBook(anyLong(), anyList())).thenReturn(book);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/books/{bookId}/addGenres", bookId)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("[1, 2]"))
+        mockMvc.perform(post("/api/books/1/addGenres")
+                        .contentType("application/json")
+                        .content("[1, 2]"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.title").value("Book1"));
+                .andExpect(jsonPath("$.id").value(1));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testAddGenresToBookNotFound() throws Exception {
-        Long bookId = 1L;
-        List<Long> genreIds = Arrays.asList(1L, 2L);
-        when(bookService.addGenresToBook(anyLong(), anyList())).thenThrow(new BookNotFoundException(bookId));
+    public void addGenresToBook_ReturnsNotFound() throws Exception {
+        when(bookService.addGenresToBook(anyLong(), anyList())).thenThrow(BookNotFoundException.class);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/api/books/{bookId}/addGenres", bookId)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("[1, 2]"))
+        mockMvc.perform(post("/api/books/1/addGenres")
+                        .contentType("application/json")
+                        .content("[1, 2]"))
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testUpdateBook() throws Exception {
-        Long bookId = 1L;
-        Set<Genre> genres = new HashSet<>();
-        Book updatedBook = new Book(bookId, "UpdatedBook", "UpdatedAuthor", 30.00, 350, genres);
+    public void updateBook_ReturnsUpdatedBook() throws Exception {
+        Book updatedBook = new Book(1L, "UpdatedTitle", "UpdatedAuthor", 25.99, 350, Collections.emptySet());
+
         when(bookService.updateBook(anyLong(), any(Book.class))).thenReturn(updatedBook);
 
-        mockMvc.perform(MockMvcRequestBuilders.put("/api/books/{id}", bookId)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"title\":\"UpdatedBook\",\"author\":\"UpdatedAuthor\",\"price\":30.00,\"pages\":350}"))
+        mockMvc.perform(put("/api/books/1")
+                        .contentType("application/json")
+                        .content("{\"title\": \"UpdatedTitle\", \"author\": \"UpdatedAuthor\", \"price\": 25.99, \"pages\": 350}"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.title").value("UpdatedBook"));
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.title").value("UpdatedTitle"));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testUpdateBookNotFound() throws Exception {
-        Long bookId = 1L;
-        Set<Genre> genres = new HashSet<>();
-        Book updatedBook = new Book(bookId, "UpdatedBook", "UpdatedAuthor", 30.00, 350, genres);
-        when(bookService.updateBook(anyLong(), any(Book.class))).thenThrow(new BookNotFoundException(bookId));
+    public void updateBook_ReturnsNotFound() throws Exception {
+        when(bookService.updateBook(anyLong(), any(Book.class))).thenThrow(BookNotFoundException.class);
 
-        mockMvc.perform(MockMvcRequestBuilders.put("/api/books/{id}", bookId)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"title\":\"UpdatedBook\",\"author\":\"UpdatedAuthor\",\"price\":30.00,\"pages\":350}"))
+        mockMvc.perform(put("/api/books/1")
+                        .contentType("application/json")
+                        .content("{\"title\": \"UpdatedTitle\", \"author\": \"UpdatedAuthor\", \"price\": 25.99, \"pages\": 350}"))
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testDeleteBook() throws Exception {
-        Long bookId = 1L;
-        doNothing().when(bookService).deleteBook(bookId);
+    public void deleteBook_ReturnsNoContent() throws Exception {
+        doNothing().when(bookService).deleteBook(anyLong());
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/books/{id}", bookId))
+        mockMvc.perform(delete("/api/books/1"))
                 .andExpect(status().isNoContent());
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testDeleteBookNotFound() throws Exception {
-        Long bookId = 1L;
-        doThrow(new BookNotFoundException(bookId)).when(bookService).deleteBook(bookId);
+    public void deleteBook_ReturnsNotFound() throws Exception {
+        doThrow(BookNotFoundException.class).when(bookService).deleteBook(anyLong());
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/books/{id}", bookId))
+        mockMvc.perform(delete("/api/books/1"))
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetBooksByTitle() throws Exception {
-        String title = "Book1";
-        Set<Genre> genres = new HashSet<>();
-        List<Book> books = Arrays.asList(new Book(1L, title, "Author1", 25.00, 300, genres));
-        when(bookService.getBooksByTitle(title)).thenReturn(books);
+    public void getBooksByTitle_ReturnsBooks() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+        Book book2 = new Book(2L, "Title1", "Author2", 29.99, 250, Collections.emptySet());
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/books/search")
-                .param("title", title)
-                .accept(MediaType.APPLICATION_JSON))
+        when(bookService.getBooksByTitle(anyString())).thenReturn(Arrays.asList(book1, book2));
+
+        mockMvc.perform(get("/api/books/search?title=Title1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value(title));
+                .andExpect(jsonPath("$[0].title").value("Title1"))
+                .andExpect(jsonPath("$[1].title").value("Title1"));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testGetBooksByGenre() throws Exception {
-        Long genreId = 1L;
-        Set<Genre> genres = new HashSet<>();
-        List<Book> books = Arrays.asList(new Book(1L, "Book1", "Author1", 25.00, 300, genres));
-        when(bookService.getBooksByGenre(genreId)).thenReturn(books);
+    public void getBooksByGenre_ReturnsBooks() throws Exception {
+        Book book1 = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+        Book book2 = new Book(2L, "Title2", "Author2", 29.99, 250, Collections.emptySet());
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/books/bygenre/{genreId}", genreId)
-                .accept(MediaType.APPLICATION_JSON))
+        when(bookService.getBooksByGenre(anyLong())).thenReturn(Arrays.asList(book1, book2));
+
+        mockMvc.perform(get("/api/books/bygenre/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value("Book1"));
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[1].id").value(2));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testRemoveGenresFromBook() throws Exception {
-        Long bookId = 1L;
-        List<Long> genreIds = Arrays.asList(1L, 2L);
-        Set<Genre> genres = new HashSet<>();
-        Book book = new Book(bookId, "Book1", "Author1", 25.00, 300, genres);
+    public void removeGenresFromBook_ReturnsUpdatedBook() throws Exception {
+        Book book = new Book(1L, "Title1", "Author1", 19.99, 300, Collections.emptySet());
+
         when(bookService.removeGenresFromBook(anyLong(), anyList())).thenReturn(book);
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/books/{bookId}/removeGenres", bookId)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("[1, 2]"))
+        mockMvc.perform(delete("/api/books/1/removeGenres")
+                        .contentType("application/json")
+                        .content("[1, 2]"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.title").value("Book1"));
+                .andExpect(jsonPath("$.id").value(1));
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
-    public void testRemoveGenresFromBookNotFound() throws Exception {
-        Long bookId = 1L;
-        List<Long> genreIds = Arrays.asList(1L, 2L);
-        when(bookService.removeGenresFromBook(anyLong(), anyList())).thenThrow(new BookNotFoundException(bookId));
+    public void removeGenresFromBook_ReturnsNotFound() throws Exception {
+        when(bookService.removeGenresFromBook(anyLong(), anyList())).thenThrow(BookNotFoundException.class);
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/books/{bookId}/removeGenres", bookId)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("[1, 2]"))
+        mockMvc.perform(delete("/api/books/1/removeGenres")
+                        .contentType("application/json")
+                        .content("[1, 2]"))
                 .andExpect(status().isNotFound());
     }
 }

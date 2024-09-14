@@ -2,6 +2,7 @@ package com.academia.bookstore.controllers;
 
 import java.util.List;
 
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.academia.bookstore.dto.BookPurchaseMessage;
 import com.academia.bookstore.dto.StoreResponse;
 import com.academia.bookstore.models.Book;
 import com.academia.bookstore.services.BookService;
@@ -22,8 +24,11 @@ public class StoreController {
 	
     @Autowired
     private BookService bookService;
+    
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
-	
+
 	@GetMapping("")
     public ResponseEntity<List<Book>> getAllBooks() {
         List<Book> books = bookService.getAllBooks();
@@ -73,6 +78,9 @@ public class StoreController {
         response.setBooks(books);
         response.setTotalPrice(totalPrice);
         response.setTotalPriceWithVAT(totalPriceWithVAT);
+
+        BookPurchaseMessage message = new BookPurchaseMessage(bookIds, totalPrice, totalPriceWithVAT);
+        amqpTemplate.convertAndSend("booksQueue", message);
 
         return ResponseEntity.ok(response);
     }
